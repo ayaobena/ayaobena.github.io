@@ -193,26 +193,32 @@
     box-shadow: 0 4px 20px rgba(79,70,229,0.1);
     transform: translateY(-2px);
   }
-  .project-icon {
-    width: 40px; height: 40px;
-    background: #ede9fe;
+
+  .project-img {
+    width: 100%;
+    height: 180px;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
+    overflow: hidden;
     margin-bottom: 1rem;
   }
-  .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-  .project-card p { font-size: 0.8rem; color: #6b7280; line-height: 1.6; margin-bottom: 1rem; }
-  .project-techs { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-  .tech-badge {
-    background: #f3f4f6;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    color: #4b5563;
-    font-weight: 500;
+  .project-img iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .project-card-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .project-card-link .project-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .project-card-link .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(79, 70, 229, 0.15);
   }
 
   /* CONTACT */
@@ -312,7 +318,7 @@
   <div class="skills-grid">
 
     <div class="skill-card">
-      <p class="skill-card-title">🌐 Web Technologies</p>
+      <p class="skill-card-title"> Web Technologies</p>
       <div class="skill-item">
         <div class="skill-top"><span class="skill-name">HTML</span><span class="skill-pct">90%</span></div>
         <div class="bar-bg"><div class="bar-fill" data-w="90"></div></div>
@@ -324,7 +330,7 @@
     </div>
 
     <div class="skill-card">
-      <p class="skill-card-title">💻 Programming Languages</p>
+      <p class="skill-card-title"> Programming Languages</p>
       <div class="skill-item">
         <div class="skill-top"><span class="skill-name">Java</span><span class="skill-pct">75%</span></div>
         <div class="bar-bg"><div class="bar-fill" data-w="75"></div></div>
@@ -336,7 +342,7 @@
     </div>
 
     <div class="skill-card">
-      <p class="skill-card-title">🗄️ Database</p>
+      <p class="skill-card-title"> Database</p>
       <div class="skill-item">
         <div class="skill-top"><span class="skill-name">MySQL</span><span class="skill-pct">78%</span></div>
         <div class="bar-bg"><div class="bar-fill" data-w="78"></div></div>
@@ -348,7 +354,7 @@
     </div>
 
     <div class="skill-card">
-      <p class="skill-card-title">🛠️ Other Tools</p>
+      <p class="skill-card-title"> Other Tools</p>
       <div class="skill-item">
         <div class="skill-top"><span class="skill-name">Git & GitHub</span><span class="skill-pct">70%</span></div>
         <div class="bar-bg"><div class="bar-fill" data-w="70"></div></div>
@@ -365,58 +371,23 @@
 <!-- PROJECTS -->
 <div class="container" id="projects" style="padding-top:0">
   <h2 class="section-title">Projects</h2>
-<div class="projects-grid">
 
-  <div class="project-card">
-    <div class="project-icon">🌐</div>
-    <h3>Booking Website System</h3>
-    <p>A functional booking system built using HTML, allowing users to schedule and manage reservations through a simple interface.</p>
-    <div class="project-techs">
-      <span class="tech-badge">HTML</span>
-      <span class="tech-badge">CSS</span>
-    </div>
+  <div class="projects-grid">
+    <!-- PROJECT 1 -->
+    <a href="https://ayaobena.github.io/A02/" target="_blank" class="project-card-link">
+      <div class="project-card">
+        <div class="project-img">
+          <iframe src="https://ayaobena.github.io/A02/"></iframe>
+        </div>
+        <h3>Web Project Showcase</h3>
+        <p>A responsive web project showcasing layout design, clean UI, and front-end development using HTML and CSS.</p>
+        <div class="project-techs">
+          <span class="tech-badge">HTML</span>
+          <span class="tech-badge">CSS</span>
+        </div>
+      </div>
+    </a>
   </div>
-
-  <div class="project-card">
-    <div class="project-icon">🐍</div>
-    <h3>Scheduling System (Python)</h3>
-    <p>A scheduling system developed in Python to organize tasks, manage time slots, and automate planning efficiently.</p>
-    <div class="project-techs">
-      <span class="tech-badge">Python</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-icon">☕</div>
-    <h3>Database System (NetBeans)</h3>
-    <p>A database-driven application created using NetBeans, integrating backend logic with structured data management.</p>
-    <div class="project-techs">
-      <span class="tech-badge">Java</span>
-      <span class="tech-badge">NetBeans</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-icon">🖥️</div>
-    <h3>Database System (WAMP)</h3>
-    <p>A local server-based database system developed using WAMP for managing and testing web applications with database connectivity.</p>
-    <div class="project-techs">
-      <span class="tech-badge">WAMP</span>
-      <span class="tech-badge">PHP</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-icon">🗄️</div>
-    <h3>SQL Database Project</h3>
-    <p>A structured database project using SQL to design tables, queries, and data relationships for efficient data storage and retrieval.</p>
-    <div class="project-techs">
-      <span class="tech-badge">SQL</span>
-      <span class="tech-badge">MySQL</span>
-    </div>
-  </div>
-
-</div>
 </div>
 
 <!-- CONTACT -->
@@ -425,15 +396,12 @@
   <div class="contact-card">
     <div class="contact-links">
       <a href="mailto:kimthea@email.com" class="contact-row">
-        <span class="contact-icon">✉️</span>
         <span class="contact-text">kimthea@email.com</span>
       </a>
       <a href="#" class="contact-row">
-        <span class="contact-icon">💼</span>
-        <span class="contact-text">0995 891 5628</span>
+        <span class="contact-text">0995 891 4567</span>
       </a>
       <a href="#" class="contact-row">
-        <span class="contact-icon">🐙</span>
         <span class="contact-text">github.com/kimthea</span>
       </a>
     </div>
@@ -457,4 +425,3 @@
 
 </body>
 </html>
-
