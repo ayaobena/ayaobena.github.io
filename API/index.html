@@ -12,58 +12,95 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
+
 <body>
 
-    <nav class="navbar">
-        <div class="container d-flex justify-content-center">
-            <div class="logo">Mystic <span>Grimoire</span></div>
-        </div>
-    </nav>
+<!-- NAVBAR -->
+<nav class="navbar py-3">
+    <div class="container position-relative d-flex align-items-center justify-content-center">
 
-    <div class="container">
-        <div class="row" id="contents">
-            <div class="loading text-center w-100 mt-5">
-                <p>Summoning characters...</p>
+        <div class="logo">Mystic <span>Grimoire</span></div>
+
+        <button id="menuBtn" class="btn btn-outline-warning">
+            ☰
+        </button>
+
+    </div>
+</nav>
+
+<!-- DROPDOWN MENU (NEW) -->
+<div id="mobileMenu" class="mobile-menu">
+    <div onclick="goHome()">Home</div>
+    <div onclick="showCharacters()">Characters</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Welcome to the Wizarding World</h1>
+    <p>Explore Characters of Magic</p>
+</section>
+
+<!-- HOMEPAGE MENU -->
+<div class="container py-5" id="homeMenu">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-4">
+            <div class="menu-card text-center" onclick="showCharacters()">
+                <h4>Characters</h4>
+                <p class="mt-2">View all wizards and witches</p>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script>
+<!-- CHARACTERS -->
+<div class="container mt-5" id="characterSection" style="display:none;">
+    <div class="row" id="contents"></div>
+</div>
 
-    <script>
-        const getCharacters = async () => {
-            const res = await fetch('https://potterapi-fedeperin.vercel.app/en/characters');
-            const characterData = await res.json();
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
 
-            const contents = document.getElementById('contents');
-            contents.innerHTML = '';
-            characterData.forEach(character => {
-                const name = character.fullName || "Unknown Wizard";
-                const house = character.hogwartsHouse || "No House";
-                const nickname = character.nickname ? ` ("${character.nickname}")` : "";
-                const imageUrl = character.image;
+menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+});
 
-                const imageHtml = imageUrl
-                    ? `<img src="${imageUrl}" alt="${name}">`
-                    : `<div class="no-image">No Photo</div>`;
+function showCharacters() {
+    document.getElementById('homeMenu').style.display = 'none';
+    document.getElementById('characterSection').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    mobileMenu.classList.remove("show");
+}
 
-                contents.innerHTML += `
-                    <div class="col-12 col-md-6 col-lg-4 my-3">
-                        <div class="card my-4 p-4 text-center rounded-4 h-100">
-                            <div class="mx-auto card-img-top-container">
-                                ${imageHtml}
-                            </div>
-                            <div class="h4 mt-4">${name}${nickname}</div>
-                            <div class="text-warning">${house}</div>
-                        </div>
-                    </div>`;
-            });
-        };
+function goHome() {
+    document.getElementById('homeMenu').style.display = 'block';
+    document.getElementById('characterSection').style.display = 'none';
+    mobileMenu.classList.remove("show");
+}
 
-        getCharacters();
-    </script>
+/* CHARACTERS */
+const getCharacters = async () => {
+    const res = await fetch('https://potterapi-fedeperin.vercel.app/en/characters');
+    const data = await res.json();
+
+    const contents = document.getElementById('contents');
+
+    data.forEach(char => {
+        contents.innerHTML += `
+        <div class="col-12 col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-img-top-container">
+                    ${char.image ? `<img src="${char.image}">` : ''}
+                </div>
+                <h5>${char.fullName || 'Unknown Wizard'}</h5>
+                <div class="house">${char.hogwartsHouse || 'No House'}</div>
+            </div>
+        </div>`;
+    });
+};
+
+getCharacters();
+</script>
+
 </body>
-
-</html> 
+</html>
