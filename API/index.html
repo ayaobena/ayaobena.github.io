@@ -15,78 +15,78 @@
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar py-3">
-    <div class="container position-relative d-flex align-items-center justify-content-center">
 
-        <div class="logo">Mystic <span>Grimoire</span></div>
+    <nav class="navbar py-3">
+        <div class="container position-relative d-flex align-items-center justify-content-center">
 
-        <button id="menuBtn" class="btn btn-outline-warning">
-            ☰
-        </button>
+            <div class="logo">Mystic <span>Grimoire</span></div>
 
+            <button id="menuBtn" class="btn btn-outline-warning">
+                ☰
+            </button>
+
+        </div>
+    </nav>
+
+
+    <div id="mobileMenu" class="mobile-menu">
+        <div onclick="goHome()">Home</div>
+        <div onclick="showCharacters()">Characters</div>
     </div>
-</nav>
 
-<!-- DROPDOWN MENU (NEW) -->
-<div id="mobileMenu" class="mobile-menu">
-    <div onclick="goHome()">Home</div>
-    <div onclick="showCharacters()">Characters</div>
-</div>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>Welcome to the Wizarding World</h1>
-    <p>Explore Characters of Magic</p>
-</section>
+    <section class="hero">
+        <div class = h1 >Welcome to the Wizarding World</div>
+        <div>Explore Characters of Magic</div>
+    </section>
 
-<!-- HOMEPAGE MENU -->
-<div class="container py-5" id="homeMenu">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-4">
-            <div class="menu-card text-center" onclick="showCharacters()">
-                <h4>Characters</h4>
-                <p class="mt-2">View all wizards and witches</p>
+
+    <div class="container py-5" id="homeMenu">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4">
+                <div class="menu-card text-center" onclick="showCharacters()">
+                    <h4>Characters</h4>
+                    <p class="mt-2">View all wizards and witches</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- CHARACTERS -->
-<div class="container mt-5" id="characterSection" style="display:none;">
-    <div class="row" id="contents"></div>
-</div>
 
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+    <div class="container mt-5" id="characterSection" style="display:none;">
+        <div class="row" id="contents"></div>
+    </div>
 
-menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("show");
-});
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
 
-function showCharacters() {
-    document.getElementById('homeMenu').style.display = 'none';
-    document.getElementById('characterSection').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    mobileMenu.classList.remove("show");
-}
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("show");
+        });
 
-function goHome() {
-    document.getElementById('homeMenu').style.display = 'block';
-    document.getElementById('characterSection').style.display = 'none';
-    mobileMenu.classList.remove("show");
-}
+        function showCharacters() {
+            document.getElementById('homeMenu').style.display = 'none';
+            document.getElementById('characterSection').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            mobileMenu.classList.remove("show");
+        }
 
-/* CHARACTERS */
-const getCharacters = async () => {
-    const res = await fetch('https://potterapi-fedeperin.vercel.app/en/characters');
-    const data = await res.json();
+        function goHome() {
+            document.getElementById('homeMenu').style.display = 'block';
+            document.getElementById('characterSection').style.display = 'none';
+            mobileMenu.classList.remove("show");
+        }
 
-    const contents = document.getElementById('contents');
 
-    data.forEach(char => {
-        contents.innerHTML += `
+        const getCharacters = async () => {
+            const res = await fetch('https://potterapi-fedeperin.vercel.app/en/characters');
+            const data = await res.json();
+
+            const contents = document.getElementById('contents');
+
+            data.forEach(char => {
+                contents.innerHTML += `
         <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <div class="card h-100">
                 <div class="card-img-top-container">
@@ -96,11 +96,12 @@ const getCharacters = async () => {
                 <div class="house">${char.hogwartsHouse || 'No House'}</div>
             </div>
         </div>`;
-    });
-};
+            });
+        };
 
-getCharacters();
-</script>
+        getCharacters();
+    </script>
 
 </body>
+
 </html>

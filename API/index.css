@@ -4,7 +4,7 @@ body {
     color: #f0eee8;
 }
 
-/* NAVBAR */
+
 .navbar {
     background: rgba(10, 10, 18, 0.85);
     backdrop-filter: blur(12px);
@@ -18,20 +18,23 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 24px;
 }
-.logo span { color: #d4af37; }
 
-/* HAMBURGER */
+.logo span {
+    color: #d4af37;
+}
+
+
 #menuBtn {
     position: absolute;
     right: 15px;
 }
 
-/* DROPDOWN MENU */
+
 .mobile-menu {
     display: none;
     flex-direction: column;
-    background: rgba(10,10,18,0.95);
-    border-bottom: 1px solid rgba(212,175,55,0.2);
+    background: rgba(10, 10, 18, 0.95);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     backdrop-filter: blur(12px);
 }
 
@@ -39,22 +42,22 @@ body {
     padding: 12px;
     text-align: center;
     cursor: pointer;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     transition: 0.3s;
 }
 
 .mobile-menu div:hover {
-    background: rgba(212,175,55,0.08);
+    background: rgba(212, 175, 55, 0.08);
 }
 
 .mobile-menu.show {
     display: flex;
 }
 
-/* HERO */
+
 .hero {
     background:
-        linear-gradient(rgba(10,10,18,0.75), rgba(10,10,18,0.95)),
+        linear-gradient(rgba(10, 10, 18, 0.75), rgba(10, 10, 18, 0.95)),
         url('https://contentful.harrypotter.com/usf1vwtuqyxm/6wHncCI874vqZMgEeZUOLk/3f086d8665f06dfa1f9f0af585850d47/UOR_DiagonAlley_VB.jpg');
     background-size: cover;
     background-position: center;
@@ -67,7 +70,7 @@ body {
     font-size: 48px;
 }
 
-/* MENU CARD */
+
 .menu-card {
     background: linear-gradient(160deg, #13132a, #0e0e1f);
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -79,10 +82,10 @@ body {
 
 .menu-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 0 25px rgba(212,175,55,0.2);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
 }
 
-/* CHARACTER CARD */
+
 .card {
     background: linear-gradient(160deg, #13132a 0%, #0e0e1f 100%);
     border: 1px solid rgba(212, 175, 55, 0.15);
@@ -117,7 +120,9 @@ body {
     color: #d4af37;
 }
 
-/* MOBILE */
+
 @media (max-width: 576px) {
-    .hero h1 { font-size: 30px; }
+    .hero h1 {
+        font-size: 30px;
+    }
 }
