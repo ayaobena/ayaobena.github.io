@@ -15,9 +15,10 @@
 
 <body>
 
+    <div class="magic-bg" id="magicBg"></div>
 
     <nav class="navbar py-3">
-        <div class="container position-relative d-flex align-items-center justify-content-center">
+        <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">Mystic <span>Grimoire</span></div>
 
@@ -29,26 +30,47 @@
     </nav>
 
 
+
     <div id="mobileMenu" class="mobile-menu">
         <div onclick="goHome()">Home</div>
         <div onclick="showCharacters()">Characters</div>
+        <div onclick="showBooks()">Books</div>
+        <div onclick="showSpells()">Spells</div>
     </div>
 
 
     <section class="hero">
-        <div class = h1 >Welcome to the Wizarding World</div>
+        <div class=h1>Welcome to the Wizarding World</div>
         <div>Explore Characters of Magic</div>
     </section>
 
 
     <div class="container py-5" id="homeMenu">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center g-4">
+
+
+
             <div class="col-12 col-md-4">
                 <div class="menu-card text-center" onclick="showCharacters()">
-                    <h4>Characters</h4>
-                    <p class="mt-2">View all wizards and witches</p>
+                    <div class=h4>Characters</div>
+                    <div class="mt-2">View all wizards and witches</div>
                 </div>
             </div>
+
+            <div class="col-12 col-md-4">
+                <div class="menu-card text-center" onclick="showBooks()">
+                    <div class=h4>Books</div>
+                    <div class="mt-2">Explore magical books</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="menu-card text-center" onclick="showSpells()">
+                    <div class=h4>Spells</div>
+                    <div class="mt-2">Discover powerful magic</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -56,6 +78,38 @@
     <div class="container mt-5" id="characterSection" style="display:none;">
         <div class="row" id="contents"></div>
     </div>
+
+
+    <div class="container mt-5" id="bookSection" style="display:none;">
+        <div class="row" id="bookContents"></div>
+    </div>
+
+
+    <div class="container mt-5" id="spellSection" style="display:none;">
+        <div class="row" id="spellContents"></div>
+    </div>
+
+    <!-- this is for my book modal -->
+    <div class="modal fade" id="bookModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content"
+                style="background:#13132a; color:#f5f1e6; border:1px solid rgba(212,175,55,0.3);">
+
+                <div class="modal-header">
+                    <div class=h5 class="modal-title" id="modalTitle">Book Title</div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div id="modalRelease"></div>
+                    <div id="modalDescription"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         const menuBtn = document.getElementById("menuBtn");
@@ -65,17 +119,37 @@
             mobileMenu.classList.toggle("show");
         });
 
+
         function showCharacters() {
-            document.getElementById('homeMenu').style.display = 'none';
+            hideAll();
             document.getElementById('characterSection').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            mobileMenu.classList.remove("show");
+            getCharacters();
+        }
+
+        function showBooks() {
+            hideAll();
+            document.getElementById('bookSection').style.display = 'block';
+            getBooks();
+        }
+
+        function showSpells() {
+            hideAll();
+            document.getElementById('spellSection').style.display = 'block';
+            getSpells();
         }
 
         function goHome() {
+            hideAll();
             document.getElementById('homeMenu').style.display = 'block';
+        }
+
+        function hideAll() {
+            document.getElementById('homeMenu').style.display = 'none';
             document.getElementById('characterSection').style.display = 'none';
+            document.getElementById('bookSection').style.display = 'none';
+            document.getElementById('spellSection').style.display = 'none';
             mobileMenu.classList.remove("show");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
 
@@ -84,6 +158,7 @@
             const data = await res.json();
 
             const contents = document.getElementById('contents');
+            contents.innerHTML = "";
 
             data.forEach(char => {
                 contents.innerHTML += `
@@ -92,14 +167,80 @@
                 <div class="card-img-top-container">
                     ${char.image ? `<img src="${char.image}">` : ''}
                 </div>
-                <h5>${char.fullName || 'Unknown Wizard'}</h5>
+                <div class = h5>${char.fullName || 'Unknown Wizard'}</div>
                 <div class="house">${char.hogwartsHouse || 'No House'}</div>
             </div>
         </div>`;
             });
         };
 
-        getCharacters();
+        const getBooks = async () => {
+            const res = await fetch('https://potterapi-fedeperin.vercel.app/en/books');
+            const data = await res.json();
+
+            const container = document.getElementById('bookContents');
+            container.innerHTML = "";
+
+            data.forEach((book, index) => {
+                container.innerHTML += `
+        <div class="col-12 col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100" onclick="openBookModal(${index})">
+                <div class = h5>${book.title}</div>
+                <div class="mt-2">Release: ${book.releaseDate || 'Unknown'}</div>
+                <div>${book.description ? book.description.substring(0, 100) + '...' : ''}</div>
+            </div>
+        </div>`;
+            });
+
+            window.booksData = data;
+        };
+        const getSpells = async () => {
+            const res = await fetch('https://potterapi-fedeperin.vercel.app/en/spells');
+            const data = await res.json();
+
+            const container = document.getElementById('spellContents');
+            container.innerHTML = "";
+
+            data.forEach(spell => {
+
+                const effect = spell.use || spell.effect || spell.description || "No effect available";
+
+                container.innerHTML += `
+        <div class="col-12 col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class = h5>${spell.spell}</div>
+                <div class="house">${spell.type || 'Magic'}</div>
+                <div class="mt-2">${effect}</div>
+            </div>
+        </div>`;
+            });
+        };
+
+        function openBookModal(index) {
+            const book = window.booksData[index];
+
+            document.getElementById('modalTitle').innerText = book.title;
+            document.getElementById('modalRelease').innerText = "Release: " + (book.releaseDate || "Unknown");
+            document.getElementById('modalDescription').innerText = book.description || "No description available";
+
+            new bootstrap.Modal(document.getElementById('bookModal')).show();
+        }
+
+        const magicBg = document.getElementById("magicBg");
+
+        function createParticles() {
+            for (let i = 0; i < 40; i++) {
+                let particle = document.createElement("span");
+
+                particle.style.left = Math.random() * 100 + "vw";
+                particle.style.animationDuration = (5 + Math.random() * 10) + "s";
+                particle.style.opacity = Math.random();
+
+                magicBg.appendChild(particle);
+            }
+        }
+
+        createParticles();
     </script>
 
 </body>
