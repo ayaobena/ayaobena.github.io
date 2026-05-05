@@ -9,9 +9,9 @@ body {
     background: rgba(10, 10, 18, 0.85);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 1000;
+
 }
 
 .logo {
@@ -22,26 +22,68 @@ body {
 
 
 #menuBtn {
-    position: absolute;
+    position: fixed;
+    top: 20px;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    z-index: 2000;
+    background: rgba(10, 10, 18, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #d4af37;
+    backdrop-filter: blur(10px);
+}
+#menuBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(212,175,55,0.3);
 }
 
+.mobile-menu.show {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+}
+.mobile-menu div {
+    padding: 12px;
+    text-align: left;
+    cursor: pointer;
 
+    color: #f5f1e6;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    transition: 0.2s;
+}
+
+.mobile-menu div:hover {
+    background: rgba(212,175,55,0.1);
+    padding-left: 18px;
+    color: #d4af37;
+}
 .mobile-menu {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+
+    width: 220px;
+
+    background: rgba(10, 10, 18, 0.95);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
     display: flex;
     flex-direction: column;
-    background: rgba(10,10,18,0.95);
-    border-bottom: 1px solid rgba(212,175,55,0.2);
-    backdrop-filter: blur(12px);
 
-    
     max-height: 0;
-    overflow: hidden;
     opacity: 0;
+    overflow: hidden;
+
     transform: translateY(-10px);
-    transition: all 0.35s ease;
+    transition: all 0.3s ease;
+
+    z-index: 2000;
 }
 
 .mobile-menu.show {
@@ -66,12 +108,18 @@ body {
 
 .hero {
     background:
-        linear-gradient(rgba(10,10,18,0.75), rgba(10,10,18,0.95)),
+        linear-gradient(rgba(10,10,18,0.85), rgba(10,10,18,0.95)),
         url('https://contentful.harrypotter.com/usf1vwtuqyxm/6wHncCI874vqZMgEeZUOLk/3f086d8665f06dfa1f9f0af585850d47/UOR_DiagonAlley_VB.jpg');
     background-size: cover;
     background-position: center;
-    padding: 140px 20px;
-    text-align: center;
+
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 20px;
+  
 }
 
 .hero h1 {
@@ -81,16 +129,21 @@ body {
 
 
 .menu-card {
-    background: linear-gradient(160deg, #13132a, #0e0e1f);
+    background: linear-gradient(145deg, #14142a, #0c0c18);
     border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 16px;
-    padding: 40px 20px;
+    border-radius: 18px;
+
+    padding: 35px 20px;
     cursor: pointer;
-    transition: 0.3s;
+
+    transition: 0.3s ease;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 .menu-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(212, 175, 55, 0.6);
     box-shadow: 0 0 25px rgba(212,175,55,0.2);
 }
 body {
@@ -126,6 +179,21 @@ body {
     box-shadow: 0 0 18px rgba(212, 175, 55, 0.15);
 }
 
+.card div {
+    color: #d6d2c4;
+}
+
+
+.card .title {
+    color: #f5f1e6;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+.card .highlight {
+    color: #d4af37;
+}
 
 .card {
     background: linear-gradient(160deg, #13132a 0%, #0e0e1f 100%);
@@ -188,7 +256,41 @@ body {
     animation: floatUp 10s linear infinite;
     bottom: -20px;
 }
+.search-card {
+    background: linear-gradient(160deg, #101022, #0b0b18);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(212,175,55,0.12);
 
+
+    height: fit-content;
+    max-height: 320px;
+
+    transition: 0.3s ease;
+}
+
+.search-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(212,175,55,0.2);
+}
+
+.search-card .title {
+    color: #f5f1e6;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.search-card .form-control,
+.search-card .form-select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,175,55,0.25);
+    color: #f5f1e6;
+    border-radius: 10px;
+}
+
+.search-card .btn {
+    border-radius: 10px;
+}
 
 @keyframes floatUp {
     0% {
@@ -202,4 +304,6 @@ body {
         transform: translateY(-110vh) scale(0.5);
         opacity: 0;
     }
+    
+  
 }
