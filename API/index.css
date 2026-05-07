@@ -1,4 +1,4 @@
-body {
+ body {
     font-family: 'Poppins', sans-serif;
     background: #0a0a12;
     color: #f0eee8;
@@ -306,4 +306,126 @@ body {
     }
     
   
+}
+body.light-mode {
+    background: #f5f1e6 ;
+    color: #1a1a1a ;
+}
+
+body.light-mode .navbar {
+    background: rgba(255,255,255,0.95) ;
+    border-bottom: 1px solid rgba(0,0,0,0.08) ;
+}
+
+body.light-mode .logo {
+    color: #1a1a1a ;
+}
+
+body.light-mode .logo span {
+    color: #b8860b ;
+}
+
+body.light-mode .hero {
+    background:
+        linear-gradient(rgba(245,241,230,0.45), rgba(245,241,230,0.55)),
+        url('https://contentful.harrypotter.com/usf1vwtuqyxm/6wHncCI874vqZMgEeZUOLk/3f086d8665f06dfa1f9f0af585850d47/UOR_DiagonAlley_VB.jpg') ;
+
+    background-size: cover ;
+    background-position: center ;
+}
+body.light-mode .hero div,
+body.light-mode .title,
+body.light-mode .card div,
+body.light-mode .menu-card div,
+body.light-mode .search-card,
+body.light-mode .search-card .title,
+body.light-mode .text-center,
+body.light-mode p,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5 {
+    color: #1a1a1a ;
+}
+
+body.light-mode .card,
+body.light-mode .menu-card,
+body.light-mode .search-card {
+    background: linear-gradient(145deg, #ffffff, #ece6d8) ;
+    border: 1px solid rgba(0,0,0,0.08) ;
+    box-shadow: 0 0 12px rgba(0,0,0,0.08) ;
+}
+
+body.light-mode .mobile-menu {
+    background: rgba(255,255,255,0.97) ;
+}
+
+body.light-mode .mobile-menu div {
+    color: #1a1a1a 
+}
+
+
+body.light-mode .form-control,
+body.light-mode .form-select {
+    background: #ffffff ;
+    color: #1a1a1a ;
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+
+body.light-mode .modal-content {
+    background: #ffffff;
+    color: #1a1a1a ;
+}
+
+
+body.light-mode .house,
+body.light-mode .highlight {
+    color: #b8860b;
+}
+
+
+body.light-mode #themeBtn {
+    color: #1a1a1a ;
+    border-color: #1a1a1a;
+}
+
+body.light-mode #menuBtn {
+    background: rgba(255,255,255,0.95) ;
+    color: #1a1a1a ;
+    border: 1px solid rgba(0,0,0,0.15) ;
+}
+body.light-mode .archive-title {
+    color: #1a1a1a ;
+}
+.archive-desc {
+    max-width: 600px;
+    margin: auto;
+    color: #d6d2c4; 
+}
+
+body.light-mode .archive-desc {
+    color: #000 ;
+}
+.hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    color: #f5f1e6; 
+}
+
+body.light-mode .hero-title {
+    color: #1a1a1a;
+}
+.hero-text {
+    max-width: 600px;
+    margin: auto;
+    color: #d6d2c4;
+}
+
+body.light-mode .hero-text {
+    color: #1a1a1a; 
+}
+.mobile-menu div i {
+    margin-right: 8px;
 }
