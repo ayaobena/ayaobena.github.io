@@ -1,309 +1,236 @@
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #0a0a12;
-    color: #f0eee8;
-}
-
-
-.navbar {
-    background: rgba(10, 10, 18, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-    position: relative;
-    z-index: 1000;
-
-}
-
-.logo {
-    font-family: 'Cinzel', serif;
-    font-size: 24px;
-}
-.logo span { color: #d4af37; }
-
-
-#menuBtn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 2000;
-    background: rgba(10, 10, 18, 0.9);
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    color: #d4af37;
-    backdrop-filter: blur(10px);
-}
-#menuBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(212,175,55,0.3);
-}
-
-.mobile-menu.show {
-    max-height: 400px;
-    opacity: 1;
-    transform: translateY(0);
-}
-.mobile-menu div {
-    padding: 12px;
-    text-align: left;
-    cursor: pointer;
-
-    color: #f5f1e6;
-
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-
-    transition: 0.2s;
-}
-
-.mobile-menu div:hover {
-    background: rgba(212,175,55,0.1);
-    padding-left: 18px;
-    color: #d4af37;
-}
-.mobile-menu {
-    position: absolute;
-    top: 70px;
-    right: 20px;
-
-    width: 220px;
-
-    background: rgba(10, 10, 18, 0.95);
-    backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(212,175,55,0.25);
-    border-radius: 14px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-
-    display: flex;
-    flex-direction: column;
-
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-
-    z-index: 2000;
-}
-
-.mobile-menu.show {
-    max-height: 300px;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.mobile-menu div {
-    padding: 12px;
-    text-align: center;
-    cursor: pointer;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    transition: 0.3s;
-}
-
-.mobile-menu div:hover {
-    background: rgba(212,175,55,0.08);
-}
-
-
-
-.hero {
-    background:
-        linear-gradient(rgba(10,10,18,0.85), rgba(10,10,18,0.95)),
-        url('https://contentful.harrypotter.com/usf1vwtuqyxm/6wHncCI874vqZMgEeZUOLk/3f086d8665f06dfa1f9f0af585850d47/UOR_DiagonAlley_VB.jpg');
-    background-size: cover;
-    background-position: center;
-
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 60px 20px;
-  
-}
-
-.hero h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 48px;
-}
-
-
-.menu-card {
-    background: linear-gradient(145deg, #14142a, #0c0c18);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 18px;
-
-    padding: 35px 20px;
-    cursor: pointer;
-
-    transition: 0.3s ease;
-
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-.menu-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 0 25px rgba(212,175,55,0.2);
-}
-body {
-    color: #e8e6e0; 
-}
-
-
-.card h5 {
-    color: #f5f1e6;
-}
-
-.card p {
-    color: #d6d2c4;
-}
-
-
-.house {
-    color: #d4af37;
-}
-
-
-.book-card h5,
-.spell-card h5 {
-    color: #f5f1e6;
-}
-
-.book-card p,
-.spell-card p {
-    color: #d6d2c4;
-}
-.card:hover {
-    border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 0 18px rgba(212, 175, 55, 0.15);
-}
-
-.card div {
-    color: #d6d2c4;
-}
-
-
-.card .title {
-    color: #f5f1e6;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-
-.card .highlight {
-    color: #d4af37;
-}
-
-.card {
-    background: linear-gradient(160deg, #13132a 0%, #0e0e1f 100%);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(212, 175, 55, 0.55);
-}
-
-.card-img-top-container {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 2px solid rgba(212, 175, 55, 0.5);
-    overflow: hidden;
-    margin: auto;
-}
-
-.card-img-top-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.house {
-    font-size: 12px;
-    color: #d4af37;
-}
-
-@media (max-width: 576px) {
-    .hero h1 { font-size: 30px; }
-}
-
-.magic-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-    pointer-events: none;
-}
-
-
-.magic-bg span {
-    position: absolute;
-    display: block;
-    width: 4px;
-    height: 4px;
-    background: rgba(212, 175, 55, 0.8);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(212,175,55,0.8);
-    animation: floatUp 10s linear infinite;
-    bottom: -20px;
-}
-.search-card {
-    background: linear-gradient(160deg, #101022, #0b0b18);
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(212,175,55,0.12);
-
-
-    height: fit-content;
-    max-height: 320px;
-
-    transition: 0.3s ease;
-}
-
-.search-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px rgba(212,175,55,0.2);
-}
-
-.search-card .title {
-    color: #f5f1e6;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.search-card .form-control,
-.search-card .form-select {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(212,175,55,0.25);
-    color: #f5f1e6;
-    border-radius: 10px;
-}
-
-.search-card .btn {
-    border-radius: 10px;
-}
-
-@keyframes floatUp {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
+ body {
+        font-family: 'Poppins', sans-serif;
+        background: #0a0a12;
+        color: #f0eee8;
     }
-    10% {
+
+    .navbar {
+        background: rgba(10, 10, 18, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        position: relative;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-family: 'Cinzel', serif;
+        font-size: 24px;
+    }
+    .logo span { color: #d4af37; }
+
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #menuBtn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 2000;
+        background: rgba(10, 10, 18, 0.9);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        color: #d4af37;
+        backdrop-filter: blur(10px);
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        font-size: 18px;
+    }
+    #menuBtn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(212,175,55,0.3);
+    }
+
+    #themeBtn {
+        position: fixed;
+        bottom: 24px;
+        right: 20px;
+        z-index: 1999;
+        background: rgba(10, 10, 18, 0.9);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        color: #d4af37;
+        backdrop-filter: blur(10px);
+        font-size: 13px;
+        padding: 8px 16px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: 'Poppins', sans-serif;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        white-space: nowrap;
+    }
+    #themeBtn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 18px rgba(212,175,55,0.35);
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        width: 220px;
+        background: rgba(10, 10, 18, 0.95);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(212,175,55,0.25);
+        border-radius: 14px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        display: flex;
+        flex-direction: column;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 2000;
+    }
+
+    .mobile-menu.show {
+        max-height: 300px;
         opacity: 1;
+        transform: translateY(0);
     }
-    100% {
-        transform: translateY(-110vh) scale(0.5);
-        opacity: 0;
+
+    .mobile-menu div {
+        padding: 12px;
+        text-align: center;
+        cursor: pointer;
+        color: #f5f1e6;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        transition: 0.2s;
     }
-    
-  
-}
+
+    .mobile-menu div:hover {
+        background: rgba(212,175,55,0.1);
+        padding-left: 18px;
+        color: #d4af37;
+    }
+
+    .hero {
+        background:
+            linear-gradient(rgba(10,10,18,0.85), rgba(10,10,18,0.95)),
+            url('https://contentful.harrypotter.com/usf1vwtuqyxm/6wHncCI874vqZMgEeZUOLk/3f086d8665f06dfa1f9f0af585850d47/UOR_DiagonAlley_VB.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+    }
+
+    .menu-card {
+        background: linear-gradient(145deg, #14142a, #0c0c18);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 18px;
+        padding: 35px 20px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .menu-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(212, 175, 55, 0.6);
+        box-shadow: 0 0 25px rgba(212,175,55,0.2);
+    }
+
+    .card {
+        background: linear-gradient(160deg, #13132a 0%, #0e0e1f 100%);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(212, 175, 55, 0.55);
+        box-shadow: 0 0 18px rgba(212, 175, 55, 0.15);
+    }
+
+    .card h5 { color: #f5f1e6; }
+    .card p  { color: #d6d2c4; }
+
+    .card-img-top-container {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 2px solid rgba(212, 175, 55, 0.5);
+        overflow: hidden;
+        margin: auto;
+    }
+
+    .card-img-top-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .house      { font-size: 12px; color: #d4af37; }
+    .card .title      { color: #f5f1e6; font-weight: 600; font-size: 18px; }
+    .card .highlight  { color: #d4af37; }
+    .card div   { color: #d6d2c4; }
+
+    .search-card {
+        background: linear-gradient(160deg, #101022, #0b0b18);
+        border: 1px solid rgba(212, 175, 55, 0.35);
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(212,175,55,0.12);
+        height: fit-content;
+        max-height: 320px;
+        transition: 0.3s ease;
+    }
+
+    .search-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 30px rgba(212,175,55,0.2);
+    }
+
+    .search-card .title {
+        color: #f5f1e6;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .search-card .form-control,
+    .search-card .form-select {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(212,175,55,0.25);
+        color: #f5f1e6;
+        border-radius: 10px;
+    }
+
+    .search-card .btn { border-radius: 10px; }
+
+    .magic-bg {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        overflow: hidden;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .magic-bg span {
+        position: absolute;
+        display: block;
+        width: 4px; height: 4px;
+        background: rgba(212, 175, 55, 0.8);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(212,175,55,0.8);
+        animation: floatUp 10s linear infinite;
+        bottom: -20px;
+    }
+
+    @keyframes floatUp {
+        0%   { transform: translateY(0) scale(1); opacity: 0; }
+        10%  { opacity: 1; }
+        100% { transform: translateY(-110vh) scale(0.5); opacity: 0; }
+    }
+
+    @media (max-width: 576px) {
+        .hero h1 { font-size: 30px; }
+    }
