@@ -4,440 +4,494 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kim Thea — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #f9fafb;
-    color: #1f2937;
+  :root {
+    --cream: #f0ede8;
+    --ink: #111111;
+    --mid: #555555;
+    --light: #999999;
+    --rule: #d8d4ce;
+    --accent: #7c3aed;
+    --dark-bg: #111111;
+    --dark-text: #ffffff;
+    --dark-muted: rgba(255,255,255,0.45);
   }
 
-  /* NAV */
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
   nav {
-    background: #fff;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 1rem 2rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.25rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
   }
   .nav-logo {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #4f46e5;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    text-decoration: none;
   }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
   .nav-links a {
     text-decoration: none;
-    font-size: 0.875rem;
-    color: #6b7280;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--mid);
     transition: color 0.2s;
+    letter-spacing: 0.01em;
   }
-  .nav-links a:hover { color: #4f46e5; }
+  .nav-links a:hover { color: var(--ink); }
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    color: #fff;
-    text-align: center;
-    padding: 6rem 2rem;
-  }
-  .avatar {
-    width: 90px; height: 90px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
+    min-height: calc(100vh - 60px);
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 2rem;
+    padding: 4rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 4rem;
+  }
+  .hero-left { flex: 1; }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
     font-weight: 700;
-    margin: 0 auto 1.5rem;
-    border: 3px solid rgba(255,255,255,0.4);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.15em;
   }
-  .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .hero p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 0.3rem;
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
   }
-  .hero-tags {
-    margin-top: 1.5rem;
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: var(--mid);
+    max-width: 420px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions {
     display: flex;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 1rem;
     flex-wrap: wrap;
   }
-  .tag {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 0.3rem 1rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    border: 2px solid var(--ink);
+    transition: background 0.2s, color 0.2s;
   }
-
-  /* SECTIONS */
-  .container { max-width: 860px; margin: 0 auto; padding: 4rem 2rem; }
-  .section-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 1.5rem;
+  .btn-primary:hover { background: transparent; color: var(--ink); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: 0.75rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: underline;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+  }
+  .hero-right {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
   }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #e5e7eb;
-  }
-
-  /* ABOUT */
-  .about-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 2rem;
-    border: 1px solid #e5e7eb;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: #4b5563;
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  .info-item {
-    background: #f3f4f6;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-  }
-  .info-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #9ca3af;
-    margin-bottom: 0.2rem;
-  }
-  .info-value { font-size: 0.875rem; font-weight: 500; color: #374151; }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .skill-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-  }
-
-  .skill-card-title {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #6b7280;
-    margin-bottom: 1rem;
-  }
-
-  .skill-item { margin-bottom: 0.9rem; }
-  .skill-item:last-child { margin-bottom: 0; }
-
-  .skill-top {
+  .avatar-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: #d5d0c8;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.35rem;
-  }
-  .skill-name { font-size: 0.875rem; font-weight: 500; color: #374151; }
-  .skill-pct { font-size: 0.75rem; color: #9ca3af; }
-
-  .bar-bg {
-    height: 6px;
-    background: #f3f4f6;
-    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--mid);
     overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
-    width: 0%;
-    transition: width 1s ease;
+    flex-shrink: 0;
   }
 
-  /* PROJECTS */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem;
+    border-top: 1px solid var(--rule);
+  }
+  .section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .project-card {
     background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
   }
   .project-card:hover {
-    box-shadow: 0 4px 20px rgba(79,70,229,0.1);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
   }
-
-  .project-img {
+  .project-preview {
     width: 100%;
-    height: 180px;
-    border-radius: 8px;
+    height: 200px;
     overflow: hidden;
-    margin-bottom: 1rem;
+    position: relative;
+    background: #e8e4de;
   }
-  .project-img iframe {
+  .project-preview iframe {
     width: 100%;
     height: 100%;
     border: none;
+    pointer-events: none;
   }
-
-  .project-card-link {
-    display: block;
+  .project-meta {
+    padding: 1.5rem;
+  }
+  .project-activity {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+  .project-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink);
     text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .project-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-body {
+    font-size: 0.95rem;
+    color: var(--mid);
+    line-height: 1.8;
+  }
+  .about-body p + p { margin-top: 1.25rem; }
+  .skills-list { }
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .skill-row:first-child { border-top: 1px solid var(--rule); }
+  .skill-name-text {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .skill-category {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
   }
 
-  .project-card-link .project-card {
-    transition: transform 0.3s, box-shadow 0.3s;
+  /* DARK FOOTER / CONTACT */
+  .contact-section {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    padding: 6rem 3rem;
   }
-
-  .project-card-link .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(79, 70, 229, 0.15);
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
   }
-
-  /* CONTACT */
-  .contact-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 2rem;
+  .contact-cta {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
   }
-  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-  .contact-row {
+  .contact-cta em {
+    display: block;
+    font-style: italic;
+    color: var(--dark-muted);
+  }
+  .contact-right { }
+  .contact-email {
+    font-size: 0.9rem;
+    color: var(--dark-muted);
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+  }
+  .contact-actions {
+    display: flex;
     gap: 1rem;
-    padding: 0.75rem 1rem;
-    background: #f9fafb;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #374151;
-    transition: background 0.2s;
+    flex-wrap: wrap;
   }
-  .contact-row:hover { background: #ede9fe; color: #4f46e5; }
-  .contact-icon { font-size: 1.1rem; }
-  .contact-text { font-size: 0.875rem; font-weight: 500; }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.8rem;
-    color: #9ca3af;
-    border-top: 1px solid #e5e7eb;
+  .btn-dark-primary {
     background: #fff;
+    color: var(--ink);
+    padding: 0.75rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 2px solid #fff;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-dark-primary:hover { background: transparent; color: #fff; }
+  .btn-dark-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s;
+    display: inline-block;
+  }
+  .btn-dark-secondary:hover { border-color: #fff; }
+
+  footer {
+    background: var(--dark-bg);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--dark-muted);
+  }
+  .footer-role {
+    font-size: 0.8rem;
+    color: var(--dark-muted);
   }
 
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 1.8rem; }
-    .skills-grid, .projects-grid, .about-grid { grid-template-columns: 1fr; }
-    .nav-links { gap: 1rem; }
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { flex-direction: column; padding: 3rem 1.5rem; min-height: auto; gap: 2.5rem; }
+    .hero-right { order: -1; }
+    .avatar-circle { width: 160px; height: 160px; font-size: 2.5rem; }
+    .section { padding: 4rem 1.5rem; }
+    .projects-grid, .about-layout, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-section { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-logo">Kim Thea</span>
+  <a href="#" class="nav-logo">Kim Thea Obena</a>
   <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="avatar">KT</div>
-  <h1>Kim Thea</h1>
-  <p>Web Developer & Designer</p>
-  <p style="font-size:0.85rem; color:rgba(255,255,255,0.6);">Philippines</p>
-  <div class="hero-tags">
-    <span class="tag">HTML & CSS</span>
-    <span class="tag">Java</span>
-    <span class="tag">Python</span>
-    <span class="tag">Database</span>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<div class="container" id="about">
-  <h2 class="section-title">About Me</h2>
-  <div class="about-card">
-    <p>Hi! I'm <strong>Kim Thea</strong>, you can call me "aya" a passionate developer from the Philippines. I enjoy building clean websites and solving problems through code. I'm always eager to learn new technologies and improve my skills. I am from San Rafael Sto Tomas Batangas</p>
-    <div class="about-grid">
-      <div class="info-item">
-        <p class="info-label">Name</p>
-        <p class="info-value">Kim Thea</p>
-      </div>
-      <div class="info-item">
-        <p class="info-label">Location</p>
-        <p class="info-value">Philippines</p>
-      </div>
-      <div class="info-item">
-        <p class="info-label">Status</p>
-        <p class="info-value">Open to work</p>
-      </div>
-      <div class="info-item">
-        <p class="info-label">Focus</p>
-        <p class="info-value">Web Development</p>
-      </div>
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">IT STUDENT</p>
+    <h1 class="hero-name">I'm <em>Kim Thea</em>,</h1>
+    <p class="hero-tagline">building for the web.</p>
+    <p class="hero-desc">Passionate about creating clean, thoughtful interfaces and solving problems through code. Always learning, always building.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
     </div>
+  </div>
+  <div class="hero-right">
+    <div class="avatar-circle">KT</div>
   </div>
 </div>
 
-<!-- SKILLS -->
-<div class="container" id="skills" style="padding-top:0">
-  <h2 class="section-title">Skills</h2>
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <p class="skill-card-title"> Web Technologies</p>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">HTML</span><span class="skill-pct">90%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="90"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">CSS</span><span class="skill-pct">85%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="85"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <p class="skill-card-title"> Programming Languages</p>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">Java</span><span class="skill-pct">75%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="75"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">Python</span><span class="skill-pct">80%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="80"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <p class="skill-card-title"> Database</p>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">MySQL</span><span class="skill-pct">78%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="78"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">SQL</span><span class="skill-pct">80%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="80"></div></div>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <p class="skill-card-title"> Other Tools</p>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">Git & GitHub</span><span class="skill-pct">70%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="70"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-top"><span class="skill-name">Problem Solving</span><span class="skill-pct">85%</span></div>
-        <div class="bar-bg"><div class="bar-fill" data-w="85"></div></div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- PROJECTS -->
-<div class="container" id="projects" style="padding-top:0">
-  <h2 class="section-title">Projects</h2>
-
+<div class="section" id="work">
+  <p class="section-eyebrow">Selected Work</p>
+  <h2 class="section-heading">Projects</h2>
   <div class="projects-grid">
-    <!-- PROJECT 1 -->
-    <a href="https://ayaobena.github.io/A02/" target="_blank" class="project-card-link">
+
+    <a href="https://ayaobena.github.io/A02/" target="_blank" style="text-decoration:none; color:inherit;">
       <div class="project-card">
-        <div class="project-img">
-          <iframe src="https://ayaobena.github.io/A02/"></iframe>
+        <div class="project-preview">
+          <iframe src="https://ayaobena.github.io/A02/" loading="lazy" tabindex="-1"></iframe>
         </div>
-        <h3>Web Project Showcase</h3>
-        <p>A responsive web project showcasing layout design, clean UI, and front-end development using HTML and CSS.</p>
-        <div class="project-techs">
-          <span class="tech-badge">HTML</span>
-          <span class="tech-badge">CSS</span>
+        <div class="project-meta">
+          <p class="project-activity">Activity 01</p>
+          <h3 class="project-title">Web Project Showcase</h3>
+          <p class="project-desc">A responsive web project showcasing layout design, clean UI, and front-end development using HTML and CSS.</p>
+          <span class="project-link">View Project →</span>
         </div>
       </div>
     </a>
-    
-    <!-- PROJECT 2 (NEW) -->
-  <a href="https://ayaobena.github.io/API/index.html" target="_blank" class="project-card-link">
-    <div class="project-card">
-      <div class="project-img">
-        <iframe src="https://ayaobena.github.io/API/"></iframe>
+
+    <a href="https://ayaobena.github.io/API/index.html" target="_blank" style="text-decoration:none; color:inherit;">
+      <div class="project-card">
+        <div class="project-preview">
+          <iframe src="https://ayaobena.github.io/API/" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="project-meta">
+          <p class="project-activity">Activity 02</p>
+          <h3 class="project-title">API Integration Project</h3>
+          <p class="project-desc">A project demonstrating API integration with dynamic data fetching and display using web technologies.</p>
+          <span class="project-link">View Project →</span>
+        </div>
       </div>
-      <h3>API Project</h3>
-      <p>A project that demonstrates API integration with dynamic data fetching and display using web technologies.</p>
-      <div class="project-techs">
-        <span class="tech-badge">HTML</span>
-        <span class="tech-badge">API</span>
-        <span class="tech-badge">JavaScript</span>
-      </div>
-    </div>
-  </a>
+    </a>
+
   </div>
 </div>
 
-<!-- CONTACT -->
-<div class="container" id="contact" style="padding-top:0">
-  <h2 class="section-title">Contact</h2>
-  <div class="contact-card">
-    <div class="contact-links">
-      <a href="mailto:kimthea@email.com" class="contact-row">
-        <span class="contact-text">kimthea@email.com</span>
-      </a>
-      <a href="#" class="contact-row">
-        <span class="contact-text">0995 891 4567</span>
-      </a>
-      <a href="#" class="contact-row">
-        <span class="contact-text">github.com/kimthea</span>
-      </a>
+<div class="section" id="about">
+  <h2 class="section-heading">About Me</h2>
+  <div class="about-layout">
+    <div class="about-body">
+      <p>Hi! I'm <strong>Kim Thea</strong>  you can call me "Aya." I'm a passionate developer from San Rafael, Sto. Tomas, Batangas in the Philippines.</p>
+      <p>I enjoy building clean websites and solving problems through code. I'm always eager to learn new technologies and push my skills further.</p>
+      <p>My current focus is on web development crafting experiences that are both functional and thoughtfully designed.</p>
+    </div>
+    <div class="skills-list">
+      <div class="skill-row">
+        <span class="skill-name-text">HTML &amp; CSS</span>
+        <span class="skill-category">Frontend</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name-text">Python</span>
+        <span class="skill-category">Language</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name-text">Java</span>
+        <span class="skill-category">Language</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name-text">MySQL &amp; SQL</span>
+        <span class="skill-category">Database</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name-text">Git &amp; GitHub</span>
+        <span class="skill-category">Tooling</span>
+      </div>
     </div>
   </div>
 </div>
 
-<footer>© 2026 aya. All rights reserved.</footer>
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="contact-cta">Let's work
+        <em>together.</em>
+      </p>
+    </div>
+    <div class="contact-right">
+      <p class="contact-email">✉ ayakimthea24@email.com</p>
+      <div class="contact-actions">
+        <a href="mailto:ayakimthea24@email.com" class="btn-dark-primary">Send Email</a>
+        <a href="https://github.com/ayaobena" target="_blank" class="btn-dark-secondary">GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-<script>
-  const fills = document.querySelectorAll('.bar-fill');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.width = e.target.dataset.w + '%';
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  fills.forEach(f => obs.observe(f));
-</script>
+<footer>
+  <span class="footer-copy">© 2026 Kim Thea. All rights reserved.</span>
+  <span class="footer-role">Web Developer</span>
+</footer>
 
 </body>
 </html>
